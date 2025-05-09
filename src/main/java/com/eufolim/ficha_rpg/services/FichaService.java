@@ -1,5 +1,7 @@
 package com.eufolim.ficha_rpg.services;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -11,6 +13,9 @@ import org.springframework.web.client.RestClient;
 
 import com.eufolim.ficha_rpg.models.Ficha;
 import com.eufolim.ficha_rpg.models.FichaJSON;
+import com.fasterxml.jackson.core.exc.StreamWriteException;
+import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class FichaService {
@@ -30,6 +35,12 @@ public class FichaService {
             n.get(json.getCarisma()-1), 
             (getHitDie(json.getClasse())+calcModifier(n.get(json.getConstituicao()-1)))
             );
+        try {
+            save(ficha);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         return ficha;
     }
 
@@ -60,6 +71,11 @@ public class FichaService {
         return Math.floorDiv(mod, 2);
     }
         
+    public static void save(Ficha ficha) throws StreamWriteException, DatabindException, IOException{
+        ObjectMapper m = new ObjectMapper();
+        m.writeValue(new File("src/main/java/com/eufolim/ficha_rpg/storage/"+ficha.getNome()+".json"),ficha);
+    }
+
 }
 
 
