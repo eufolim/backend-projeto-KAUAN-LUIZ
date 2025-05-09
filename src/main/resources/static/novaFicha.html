@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="http://localhost:8000/criarficha">
+        <input name="nome" type="text">
+        <select name="classe" id="classe">
+            <option value="barbarian">Barbaro</option>
+            <option value="bard">Bardo</option>
+            <option value="cleric">Clerico</option>
+            <option value="druid">Druida</option>
+            <option value="fighter">Lutador</option>
+            <option value="monk">Monge</option>
+            <option value="paladin">Paladino</option>
+            <option value="ranger">Arqueiro</option>
+            <option value="rogue">Ladino</option>
+            <option value="sorcerer">Feiticeiro</option>
+            <option value="warlock">Bruxo</option>
+            <option value="wizard">Mago</option>
+        </select>
+        <input type="number" max="6" min="1" id="str" name="forca">
+        <input type="number" max="6" min="1" id="dex" name="destreza">
+        <input type="number" max="6" min="1" id="con" name="constituicao">
+        <input type="number" max="6" min="1" id="int" name="inteligencia">
+        <input type="number" max="6" min="1" id="wis" name="sabedoria">
+        <input type="number" max="6" min="1" id="cha" name="carisma">
+        <input type="submit">
+    </form>
+</body>
+</html>
