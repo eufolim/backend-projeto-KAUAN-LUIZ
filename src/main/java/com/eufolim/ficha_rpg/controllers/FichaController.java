@@ -36,7 +36,7 @@ public class FichaController {
         HashMap<String,Object> sobre = new HashMap<>();
         String[] nomes = {"Kauan Martins Pereira","Luiz Antônio Frey Cristiano"};
         sobre.put("integrantes", nomes);
-        sobre.put("nome_projeto", "");
+        sobre.put("nome_projeto", "Ficha RPG");
         return ResponseEntity.ok().body(sobre);
     }
 
